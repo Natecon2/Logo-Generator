@@ -1,12 +1,12 @@
 // index.js
 
 import fs from 'fs';
-import inquirer from 'inquirer'; // Updated import statement
+import inquirer from 'inquirer';
 import { Circle, Triangle, Square } from './lib/shapes.js';
 
 async function main() {
   try {
-    const userInput = await inquirer.prompt([ // Updated 'inquirer' usage
+    const userInput = await inquirer.prompt([
       {
         type: 'input',
         name: 'text',
@@ -54,10 +54,13 @@ async function main() {
 
     const svg = shape.render();
 
-    // Save the generated SVG as logo.svg
-    fs.writeFileSync('logo.svg', svg);
+    // Specifies the full path to save the SVG file in the 'examples' folder
+    const filePath = './examples/logo.svg';
 
-    console.log('Generated logo.svg');
+    // Saves the generated SVG as 'logo.svg' in the 'examples' folder
+    fs.writeFileSync(filePath, svg);
+
+    console.log(`Generated ${filePath}`);
   } catch (error) {
     console.error('An error occurred:', error);
   }
