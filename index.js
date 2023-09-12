@@ -1,5 +1,3 @@
-// index.js
-
 import fs from 'fs';
 import inquirer from 'inquirer';
 import { Circle, Triangle, Square } from './lib/shapes.js';
@@ -54,10 +52,8 @@ async function main() {
 
     const svg = shape.render();
 
-    // Specifies the full path to save the SVG file in the 'examples' folder
     const filePath = './examples/logo.svg';
 
-    // Saves the generated SVG as 'logo.svg' in the 'examples' folder
     fs.writeFileSync(filePath, svg);
 
     console.log(`Generated ${filePath}`);
